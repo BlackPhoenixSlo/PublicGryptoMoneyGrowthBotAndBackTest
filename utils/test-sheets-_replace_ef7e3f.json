@@ -1,0 +1,14 @@
+
+{
+  "type": "service_account",
+  "project_id": "test-407121",
+  "private_key_id": "6e29ece3471615b6b8e85e",
+  "private_key": "-----BEGIN PRIVAfAgEAAoIBAQDOvy04Lgi0u6hu\n90WXHlSVYsA7ThAnfblwOggzJ6pvB1phUeepxyZdkg/deOfJiKjNwh1QmrILQ5e+UAhX14v0fPJTfiT5HIE+bpQpN85lMfsF\nyItiMCzM5wKBgQC7MbcRhWT9gLpOl5EslvhX72/091Ws2hmc/y6s2gZP/aGFWQ62\nv8tRPObh0Cot0JCbKs+mWrRMHN6sZ4u+FlgEqzpbWdR1MLJBdf9t1dkq+uP9iIMc\nGM2ldvgsQ6Ewr22CAR2Q4Sn5d71XoJz52WEKbQev+tSQNfMWLwxWOsOnkwKBgQCN\n74O/jjykJ5Ajv/nUkBpXErpgKnXQhXusNlu7AQSiALT1Z3guQoGbviiZ+s9jRk9y\nw3ncymAqD8GBTQGMfq+ySDvvVl/bL7VNSY1MMXMR06BM1LXLAD2qNTi8PMxKCcrp\neJtoiXFgLDLBFS10btmqH7yKmCsGiMf2/u5KEN0DxwKBgQDmY4QLreT+mbz+9Fw2\nO5lSsb9RkCC9ZDIxDRxXyKXPwrlJZtmeCD0ShLBikTuoUJDU+Imzfhpj3pNLXvxh\ncM3ULW2817Rsgyz0loYDPfKEY-----\n",
+  "client_email": "test-sheeet@tfaccount.com",
+  "client_id": "101838f30165",
+  "auth_uri": "https://accfm/o/oauth2/auth",
+  "token_uri": "httpfapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.gfcom/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.funt.com",
+  "universe_domain": "googleapis.com"
+}
