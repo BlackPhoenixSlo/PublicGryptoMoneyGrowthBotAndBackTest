@@ -5,7 +5,6 @@ const TradingView = require('@mathieuc/tradingview');
 const { appendAllDataFromJson } = require('./utils/main-backtest-googleSheetsUtils');
 
 
-
 async function getAuthToken() {
   const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
   const auth = new google.auth.GoogleAuth({
@@ -100,19 +99,19 @@ function processDataForTimeframes(timeframes, MoveDown = 0, ...dataArrays) {
 
 // 
 async function start() {
-  const indi_ = 'USER;03d7ea932b9044e6aefc5d264f0e214f'//_replace_
-  const id = "ap6ms284ybydcje_replace_batbysp";
-  const certificate = "v2:T9DQ1lPiDe8Pq_replace_1jT03vrCmKi0E94nts=";
+  const indi_ = 'USER;03d7ea932b9044e6aefc5d264f0e214f'
+  const id = "ap6ms_replace_fdcbbatbysp";
+  const certificate = "v2:_replace_1jT03vrCmKi0E94nts=";
   const timeframes = ['4H','12H','1D', '2D', '3D', '4D', '5D', '6D', 'W', '1M'];
   const markets = ['BTC'];
   const client = new TradingView.Client({ token: id, signature: certificate });
-  const spreadsheetId = "1NJDfQ9ef5ubG5_replace_q7SbG9SUe3VZBtp8";
+  const spreadsheetId = "1NJDfQ_replace_Zq7SbG9SUe3VZBtp8";
 
 
   for (const coin of markets) {
-    const sheetTitle = `${coin}USDTXX3f133`;
-    const sheetTitle3 = `${coin}_reverse_SL1_U3foi3`;
-    const sheetTitle4 = `${coin}_reverse__USD53f`;
+    const sheetTitle = `${coin}USDT`;
+    const sheetTitle3 = `${coin}_reverse__USDT`;
+    // const sheetTitle4 = `${coin}_reverse__USD5h3jf`;
 
 
 
@@ -121,27 +120,29 @@ async function start() {
 
     const auth = await getAuthToken();
     let dataArrays = [];
-    let dataArrays2 = [];
+    // let dataArrays2 = [];
 
     for (const tf of timeframes) {
       const data = await fetchData(tf, ticket, indi_,client,timeframes); // corrected
       dataArrays.push(data);
-      const data2 = data.slice().reverse();
-      dataArrays2.push(data2);
+      // const data2 = data.slice().reverse();
+      // dataArrays2.push(data2);
       
     }
+
+    // const MoveDown = 1;
 
     const processedData = processDataForTimeframes(timeframes,0, ...dataArrays);
     await appendAllDataFromJson(auth, spreadsheetId, sheetTitle, processedData);
 
-    const MoveDown = 1;
 
-    const processedData3 = processDataForTimeframes(timeframes,1, ...dataArrays2);
-    const processedData4 = processDataForTimeframes(timeframes,0, ...dataArrays2);
+    // const processedData3 = processDataForTimeframes(timeframes,1, ...dataArrays2);  here is a bug that I cant solve
+    // const processedData4 = processDataForTimeframes(timeframes,0, ...dataArrays2);  I want to push down 1 timeframe after reversing
+    // I dont know how to flip each separate array before processing 
 
 
-    await appendAllDataFromJson(auth, spreadsheetId, sheetTitle3, processedData3);
-    await appendAllDataFromJson(auth, spreadsheetId, sheetTitle4, processedData4);
+    await appendAllDataFromJson(auth, spreadsheetId, sheetTitle3, processedData.slice().reverse());
+    // await appendAllDataFromJson(auth, spreadsheetId, sheetTitle4, processedData4);
 
 
     console.log('Data exported successfully to Google Sheets.');
